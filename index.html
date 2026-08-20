@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sterling & Cross | Boutique Law Firm</title>
+    <!-- Importing a Serif font for authority, Sans-Serif for readability -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for a Legal/Corporate Theme */
+        :root {
+            --primary: #1e3a8a; /* Deep Navy */
+            --primary-dark: #1e293b;
+            --accent: #b45309; /* Brushed Bronze/Gold */
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --text-main: #334155;
+            --text-light: #94a3b8;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Inter', system-ui, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-main);
+            background-color: var(--light-bg);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            color: var(--primary-dark);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            padding: 0.5rem 5%;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 1rem;
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--white);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 3px;
+            font-weight: 600;
+            font-family: var(--font-sans);
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 75vh;
+            background: linear-gradient(to right, rgba(30, 41, 59, 0.9) 0%, rgba(30, 41, 59, 0.6) 100%), 
+                        url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            color: #cbd5e1;
+            border-left: 3px solid var(--accent);
+            padding-left: 1.5rem;
+        }
+
+        /* Section Layout */
+        .section-pad { padding: 5rem 5%; }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        /* Practice Areas Grid */
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .practice-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-top: 4px solid var(--primary);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .practice-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--accent);
+        }
+
+        .practice-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .practice-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Philosophy / About Section */
+        .philosophy {
+            background-color: var(--white);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .philosophy-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            box-shadow: -15px 15px 0 var(--primary);
+        }
+
+        /* Consultation Form */
+        .consultation {
+            background-color: var(--primary-dark);
+            color: var(--white);
+        }
+
+        .consultation .section-header h2 { color: var(--white); }
+
+        .consultation-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 { color: var(--white); margin-bottom: 1.5rem; }
+        .contact-info p { color: #cbd5e1; margin-bottom: 1rem; display: flex; align-items: center; }
+        .contact-info strong { color: var(--accent); margin-right: 0.5rem; width: 80px; }
+
+        .form-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 4px;
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 2px;
+            font-family: var(--font-sans);
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Footer & Disclaimer */
+        footer {
+            background-color: #0f172a;
+            color: #64748b;
+            padding: 4rem 5% 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .disclaimer {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            padding: 1.5rem;
+            border: 1px solid #1e293b;
+            color: #475569;
+            text-align: justify;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .philosophy, .consultation-wrapper { grid-template-columns: 1fr; }
+            nav { display: none; /* Mobile menu would go here */ }
+            .philosophy-img { height: 300px; box-shadow: -10px 10px 0 var(--primary); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div>📍 Serving clients in Kempton Park, Sandton, and Pretoria</div>
+        <div>
+            <a href="tel:+27820000000">Call Now: 011 555 0199</a>
+            <a href="mailto:consult@sterlingcross.co.za">consult@sterlingcross.co.za</a>
+        </div>
+    </div>
+
+    <header>
+        <a href="#" class="logo">Sterling <span>&</span> Cross</a>
+        <nav>
+            <a href="#practice">Practice Areas</a>
+            <a href="#firm">Our Firm</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="btn-primary">Request Consultation</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Strategic Counsel. Exceptional Results.</h1>
+            <p>A boutique litigation and corporate advisory firm providing bespoke legal solutions to businesses, families, and individuals navigating complex legal landscapes.</p>
+            <a href="#practice" class="btn-primary" style="background-color: transparent; border: 2px solid var(--white); margin-right: 1rem;">Our Expertise</a>
+            <a href="#contact" class="btn-primary">Confidential Evaluation</a>
+        </div>
+    </section>
+
+    <!-- Practice Areas -->
+    <section id="practice" class="section-pad">
+        <div class="section-header">
+            <h2>Areas of Practice</h2>
+        </div>
+        <div class="practice-grid">
+            <div class="practice-card">
+                <h3>Commercial Litigation</h3>
+                <p>Aggressive representation in contract disputes, shareholder conflicts, and breach of fiduciary duty claims. We protect your business interests at every level of the judicial system.</p>
+                <a href="#" class="read-more">Learn More →</a>
+            </div>
+            <div class="practice-card">
+                <h3>Corporate Transactions</h3>
+                <p>Navigating mergers, acquisitions, restructuring, and compliance. We structure deals that mitigate risk while maximizing commercial value for our clients.</p>
+                <a href="#" class="read-more">Learn More →</a>
+            </div>
+            <div class="practice-card">
+                <h3>Estate & Trust Law</h3>
+                <p>Sophisticated wealth preservation strategies, complex will drafting, and trust administration to ensure your legacy is protected for future generations.</p>
+                <a href="#" class="read-more">Learn More →</a>
+            </div>
+            <div class="practice-card">
+                <h3>High-Net-Worth Family Law</h3>
+                <p>Discreet and strategic counsel for complex divorces, asset division, and multi-jurisdictional family disputes, prioritizing privacy and swift resolution.</p>
+                <a href="#" class="read-more">Learn More →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Firm Philosophy -->
+    <section id="firm" class="section-pad philosophy">
+        <div>
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Attorneys reviewing documents" class="philosophy-img">
+        </div>
+        <div>
+            <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; position: relative;">The Boutique Advantage</h2>
+            <p style="margin-bottom: 1.5rem; color: var(--text-light); font-size: 1.1rem;">Unlike large, traditional firms where cases are passed down to junior associates, Sterling & Cross guarantees that a senior partner leads every strategy.</p>
+            <p style="margin-bottom: 2rem; color: var(--text-light); font-size: 1.1rem;">We intentionally limit our caseload. This allows us to provide the meticulous attention to detail and agile strategic thinking required to win high-stakes litigation and close complex transactions.</p>
+            
+            <div style="display: flex; gap: 2rem; margin-top: 2rem; border-top: 1px solid #cbd5e1; padding-top: 2rem;">
+                <div>
+                    <h4 style="font-size: 2rem; color: var(--primary);">25+</h4>
+                    <p style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase;">Years Combined Experience</p>
+                </div>
+                <div>
+                    <h4 style="font-size: 2rem; color: var(--primary);">Bespoke</h4>
+                    <p style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase;">Strategic Solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secure Consultation Form -->
+    <section id="contact" class="section-pad consultation">
+        <div class="section-header">
+            <h2>Request a Confidential Consultation</h2>
+        </div>
+        
+        <div class="consultation-wrapper">
+            <div class="contact-info">
+                <h3>Our Chambers</h3>
+                <p>We are available for in-person consultations by appointment only, or via secure video conference.</p>
+                
+                <div style="margin-top: 2.5rem;">
+                    <p><strong>Address:</strong> 14 Legal Avenue, CBD, Kempton Park, 1619</p>
+                    <p><strong>Phone:</strong> 011 555 0199</p>
+                    <p><strong>Hours:</strong> Mon - Fri, 08:30 - 17:00</p>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Number</label>
+                        <input type="tel" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nature of Legal Issue</label>
+                        <select name="inquiry_type">
+                            <option value="litigation">Commercial Litigation</option>
+                            <option value="corporate">Corporate Advisory</option>
+                            <option value="estate">Estate Planning</option>
+                            <option value="family">Family Law</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Brief Description (Please do not include sensitive information)</label>
+                        <textarea name="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%; font-size: 1.1rem;">Submit Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="disclaimer">
+            <strong>Disclaimer:</strong> The information contained on this website is for general informational purposes only and does not constitute legal advice. Reading this website or contacting Sterling & Cross through this site does not create an attorney-client relationship. Please refrain from sending confidential or sensitive information through our contact forms until a formal attorney-client relationship has been established in writing.
+        </div>
+        <p>&copy; 2026 Sterling & Cross Attorneys at Law. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
